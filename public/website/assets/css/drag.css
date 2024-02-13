@@ -1,0 +1,70 @@
+
+.wrapper {
+    padding: 14px 0px;
+    position: relative;
+    overflow-x: hidden;
+    background: #fff;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .wrapper .icon {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 70px;
+    display: flex;
+    align-items: center;
+  }
+  .icon:first-child {
+    left: 0;
+    display: none;
+    background: linear-gradient(90deg, #fff 70%, transparent);
+  }
+  .icon:last-child {
+    right: 0;
+    justify-content: flex-end;
+    background: linear-gradient(-90deg, #fff 70%, transparent);
+  }
+  .icon i {
+    width: 46px;
+    height: 46px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+  }
+
+  .icon:first-child i {
+    margin-left: 15px;
+  } 
+  .icon:last-child i {
+    margin-right: 15px;
+  } 
+  .wrapper .tabs-box {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    margin-bottom: -2px;
+  }
+  .tabs-box.dragging {
+    scroll-behavior: auto;
+    cursor: grab;
+  }
+  .tabs-box .tab {
+    cursor: pointer;
+    font-size: 16px;
+    white-space: nowrap;
+    background: #f5f4fd;
+    padding: 7px 17px;
+    border-radius: 30px;
+  }
+  .tabs-box .tab:hover{
+    background: #efedfb;
+  }
+  .tabs-box.dragging .tab {
+    user-select: none;
+    pointer-events: none;
+  }
