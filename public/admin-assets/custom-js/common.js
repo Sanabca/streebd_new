@@ -10,17 +10,7 @@ $.ajaxSetup({
     },
 });
 $(document).ready(function (e) {
-    $(".passwordHideShow").on("click", function () {
-        $(this).find(".passwordHidden,.passwordShowed").toggleClass("d-none");
-        var input = $(this).closest(".relative").find(".passwordField");
-        input.attr("type") == "password"
-            ? input.attr("type", "text")
-            : input.attr("type", "password");
-    });
-
-    if ($.isFunction($.fn.tooltip)) {
-        $('[data-toggle="tooltip"]').tooltip();
-    }
+   
     if (flashstatus == "SUCCESS") {
         $.toast({
             heading: "Success",
@@ -63,14 +53,6 @@ $(document).ready(function (e) {
 
     //toggle password
 
-    $(document).on("click", ".toggle-password, #psd", function () {
-        $(this).toggleClass("showPsd");
-
-        var input = $("#password");
-        input.attr("type") === "password"
-            ? input.attr("type", "text")
-            : input.attr("type", "password");
-    });
 
     $(document).on("click", ".reload", function (e) {
         console.log("this is reload");
@@ -185,119 +167,7 @@ $(document).ready(function (e) {
         });
     });
 
-    $(document).ready(function () {
-        $("#country_name").on("change", function () {
-            var country_name = this.value;
-            $("#state_name").html("");
-            $.ajax({
-                type: "post",
-                url: baseUrl + "ajax/get-states-by-country",
-                data: {
-                    country_name: country_name,
-                },
-                dataType: "json",
-                success: function (result) {
-                    $("#state_name").html(
-                        '<option value="">Select State</option>'
-                    );
-                    $.each(result.states, function (key, value) {
-                        $("#state_name").append(
-                            '<option value="' +
-                                value.name +
-                                '">' +
-                                value.name +
-                                "</option>"
-                        );
-                    });
-                    $("#city_name").html(
-                        '<option value="">Select State First</option>'
-                    );
-                },
-            });
-        });
-        $("#country").on("change", function () {
-            var country_name = this.value;
-            $("#states_name").html("");
-            $.ajax({
-                type: "post",
-                url: baseUrl + "ajax/get-states-by-country",
-                data: {
-                    country_name: country_name,
-                },
-                dataType: "json",
-                success: function (result) {
-                    $("#states_name").html(
-                        '<option value="">Select State</option>'
-                    );
-                    $.each(result.states, function (key, value) {
-                        $("#states_name").append(
-                            '<option value="' +
-                                value.name +
-                                '">' +
-                                value.name +
-                                "</option>"
-                        );
-                    });
-                    $("#cities_name").html(
-                        '<option value="">Select State First</option>'
-                    );
-                },
-            });
-        });
-        $("#state_name").on("change", function () {
-            var state_name = this.value;
-            $("#city_name").html("");
-            $.ajax({
-                url: baseUrl + "ajax/get-cities-by-state",
-                type: "post",
-                data: {
-                    state_name: state_name,
-                },
-                dataType: "json",
-                success: function (result) {
-                    $("#city_name").html(
-                        '<option value="">Select City</option>'
-                    );
-                    $.each(result.cities, function (key, value) {
-                        $("#city_name").append(
-                            '<option value="' +
-                                value.name +
-                                '">' +
-                                value.name +
-                                "</option>"
-                        );
-                    });
-                },
-            });
-        });
-        $("#states_name").on("change", function () {
-            var state_name = $("#states_name").val();
-            console.log($("#states_name").val());
-            $("#cities_name").html("");
-            $.ajax({
-                url: baseUrl + "ajax/get-cities-by-state",
-                type: "post",
-                data: {
-                    states_name: state_name,
-                },
-                dataType: "json",
-                success: function (result) {
-                    $("#cities_name").html(
-                        '<option value="">Select City</option>'
-                    );
-                    $.each(result.cities, function (key, value) {
-                        $("#cities_name").append(
-                            '<option value="' +
-                                value.name +
-                                '">' +
-                                value.name +
-                                "</option>"
-                        );
-                    });
-                },
-            });
-        });
-    });
+    
 
     $(".close-btn").click(function (e) {
         $(".formsubmit").trigger("reset");
