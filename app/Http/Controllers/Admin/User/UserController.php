@@ -35,20 +35,20 @@ class UserController extends Controller
         if (!empty($userId)) {
             $request->validate([
                 'name'   =>  'required|string,'.$userId,
-                'mobile_number'     =>  'required|string|min:10,',
-                'email'     =>  'required|string|unique:products,product_name,',
-                'username'     =>  'required|string,',
-                'password'     =>  'required|string,',
+                'mobile_number'     =>  'nullable',
+                'email'     =>  'nullable,',
+                'username'     =>  'nullable',
+                'password'     =>  'nullable',
         
             ]);
             $message = "User Updated Successfully";
         } else {
             $request->validate([
                 'name'     =>  'required|string',
-                'mobile_number' => 'required|string|min:10',
-                'email'     =>  'required|string|unique:products,product_name',
-                'username'     =>  'required|string',
-                'password'     =>  'required|string',
+                'mobile_number' => 'nullable',
+                'email'     =>  'nullable',
+                'username'     =>  'nullable',
+                'password'     =>  'nullable',
 
             ]);
             $message = "User Created Successfully";
@@ -104,7 +104,7 @@ class UserController extends Controller
         try {
             if ($userDetails){
                 $status=$userDetails->update(['status'=>$request->value]);
-                $message ="User Deleted  Successfully"; 
+                $message ="User status updated  Successfully"; 
             }
             
             return $this->responseJson(true,200,$message);

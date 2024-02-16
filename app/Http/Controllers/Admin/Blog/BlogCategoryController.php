@@ -96,7 +96,7 @@ class BlogCategoryController extends Controller
         try {
             if ($categoryDetails){
                 $status=$categoryDetails->update(['status'=>$request->value]);
-                $message ="Blog Category Deleted  Successfully"; 
+                $message ="Blog Category Updated  Successfully"; 
             }
             
             return $this->responseJson(true,200,$message);

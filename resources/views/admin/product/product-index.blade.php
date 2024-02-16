@@ -56,7 +56,7 @@
                     <h4 class="modal-title">Product : <span class="action_name"></span></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="{{ route('admin.product.save') }}" class="formsubmit" method="POST">
+                <form action="{{ route('admin.product.save') }}" class="formsubmit fileupload" id="product_form" method="POST"  enctype="multipart/form-data">
                     @csrf()
                     <div class="form-section">
                         @include('admin.product.product-add-edit')

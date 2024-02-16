@@ -16,7 +16,11 @@ return new class extends Migration
             $table->uuid();
             $table->string('product_name');
             $table->string('slug')->nullable();
-            $table->string('product_description')->nullable();
+            $table->string('brand')->nullable();
+            $table->string('type')->nullable();
+            $table->string('quantity')->nullable();
+            $table->string('price')->nullable();
+            $table->string('amount')->nullable();
             $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });

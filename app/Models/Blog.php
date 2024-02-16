@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
+
 class Blog extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;

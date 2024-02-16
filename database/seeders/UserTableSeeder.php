@@ -16,7 +16,5 @@ class UserTableSeeder extends Seeder
         //
         $user = User::updateOrCreate(['email'=>'admin@finberg.com'],['name'=>'admin','email'=>'admin@finberg.com','mobile_number'=>"7903609286",'password'=>Hash::make('12345678')]);
 
-        // $user = User::updateOrCreate(['email'=>'admin@streebd.com'],['name'=>'admin','email'=>'admin@streebd.com','mobile_number'=>"7903609286",'password'=>Hash::make('12345678')]);
-
     }
 }

@@ -153,20 +153,7 @@
         });
     }); 
 </script>
-<script>
-    // var imageUrl = "{{route('admin.blog.blogs.upload-image')}}"
-    // var description = new FroalaEditor('#description',{
-    // // Set the allowed image types for upload.
-    // imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-    //  // Set the image upload URL.
-    // imageUploadURL: imageUrl,
-    // // Set any additional upload params if needed.
-    // imageUploadParams: {
-    //     id: 'my_editor'
-    // }
-    // });
 
-  </script>
   <script>
      var imageUrl = "{{route('admin.blog.blogs.upload-image')}}"
     new FroalaEditor('#description', {

@@ -49,6 +49,7 @@ Route::as('admin.')->group(function () {
             Route::get('edit/{id}', [ProductController::class, 'getEdit'])->name('edit');
             Route::get('update-status/{id}', [ProductController::class, 'updateStatus'])->name('status');
             Route::get('delete/{id}', [ProductController::class, 'deleteRecord'])->name('delete');
+            Route::post('upload-image', [ProductController::class, 'uploadImage'])->name('upload-image');
         });
 
         Route::prefix('user')->as('user.')->group(function () {

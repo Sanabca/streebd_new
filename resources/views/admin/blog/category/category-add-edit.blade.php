@@ -1,4 +1,3 @@
-
     @if (!empty($data))
     <input type="hidden" name="category_id" 
     value="{{$data->id}}"

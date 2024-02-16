@@ -26,10 +26,11 @@
                     <table class="table table-bordered card-table data-table" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>SI</th>
                                 <th>Name</th>
-                                <th>Mobile Number</th> 
-                                <th>Username</th>
-                                <th>Password</th>
+                                {{-- <th>Description</th> --}}
+                                <th>Created At</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -77,21 +78,24 @@
                 serverSide: true,
                 ajax: "{{ route('admin.user.list') }}",
                 columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
+                    },
+
+                    {
                         data: 'name',
                         name: 'name'
                     },
                     
                     {
-                        data: 'mobile_number',
-                        name: 'mobile_number'
+                        data: 'created_at',
+                        name: 'created_at'
                     },
                     {
-                        data: 'email',
-                        name: 'email'
-                    },
-                    {
-                        data: 'password',
-                        name: 'password'
+                        data: 'status',
+                        name: 'status'
                     },
                     {
                         data: 'action',

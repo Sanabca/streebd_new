@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->string('name');
-            $table->string('mobile_number');
-            $table->string('email');
-            $table->string('username');
-            $table->string('password');
+            $table->string('mobile_number')->nullable();
+            $table->string('email')->nullable();
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
             $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });

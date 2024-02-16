@@ -1,4 +1,3 @@
-
 @if (!empty($data))
     <input type="hidden" name="user_id" 
     value="{{$data->id}}"
@@ -18,7 +17,7 @@
             <div class="col-lg-6">
             <div class="form-group">
                     <label for="mobile_number">User Mobile No</label>
-                    <input type="text" name="mobile_number" @if (!empty($data))
+                    <input type="number" name="mobile_number" @if (!empty($data))
                         value="{{$data->mobile_number}}"
                     @endif class="form-control" id="mobile_number">
                 </div>
@@ -28,7 +27,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="email">User Email</label>
-                    <input type="text" name="email" @if (!empty($data))
+                    <input type="email" name="email" @if (!empty($data))
                         value="{{$data->email}}"
                     @endif class="form-control" id="email">
                 </div>
@@ -46,7 +45,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="text" name="password" @if (!empty($data))
+                    <input type="password" name="password" @if (!empty($data))
                         value="{{$data->password}}"
                     @endif class="form-control" id="password">
                 </div>
@@ -70,4 +69,3 @@
             </div>
         </div>
     </div>
-

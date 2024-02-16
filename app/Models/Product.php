@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\HasMedia;
 
-
-class Product extends Model
+class Product extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
      /**
      * The attributes that are mass assignable.
      *
@@ -18,7 +19,11 @@ class Product extends Model
      */
     protected $fillable = [
         'product_name',
-        'product_description',
+        'brand',
+        'type',
+        'quantity',
+        'price',
+        'amount',
         'slug',
         'status',
     ];

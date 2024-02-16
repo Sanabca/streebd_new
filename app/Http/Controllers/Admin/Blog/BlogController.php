@@ -14,8 +14,7 @@ use Illuminate\Http\Response;
 class BlogController extends Controller
 {
     //
-    public function index(Request $request)
-    {
+    public function index(Request $request){
         if ($request->ajax()) {
             $data = Blog::with('category')->select('*');
             return DataTables::of($data)
@@ -33,14 +32,13 @@ class BlogController extends Controller
             $categories = BlogCategory::getActive()->get();
         return view('admin.blog.blogs.blogs-index',compact('categories'));
     }
-    public function create(Request $request)
-    {
+
+    public function create(Request $request){
         $categories = BlogCategory::getActive()->get();
         return view('admin.blog.blogs.blogs-add-edit',compact('categories'));
     }
     
-    public function uploadImage(Request $request)
-    {
+    public function uploadImage(Request $request){
         // if ($request->hasFile('image') && $request->file('image')->isValid()) {
             // $blog->clearMediaCollection('blog_image');
             $blogImage = new BlogImage();
@@ -88,16 +86,15 @@ class BlogController extends Controller
 
     }
 
-    public function getEdit(Request $request)
-    {
+    public function getEdit(Request $request){
         // re
         // return $request->uuid;
         $blog=Blog::where('uuid',$request->uuid)->first();
         $categories = BlogCategory::getActive()->get();
         return view('admin.blog.blogs.blogs-add-edit',compact('categories','blog'));
     }
-    public function deleteRecord(Request $request)
-    {
+
+    public function deleteRecord(Request $request){
         // re
         $blogsDetails=Blog::where('uuid',$request->uuid)->first();
         // return $blogsDetails;
@@ -116,8 +113,8 @@ class BlogController extends Controller
         }
 
     }
-    public function updateStatus(Request $request)
-    {
+    
+    public function updateStatus(Request $request){
         $blogsDetails=Blog::where('uuid',$request->uuid)->first();
         // return $blogsDetails;
         $message ="Blog Not Found";
