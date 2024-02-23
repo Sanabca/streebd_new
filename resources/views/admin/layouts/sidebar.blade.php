@@ -59,16 +59,33 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBill"
+                    aria-expanded="true" aria-controls="collapseBill">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Bill</span>
+                </a>
+                <div id="collapseBill" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{route('admin.bill.list')}}">Bill </a>
+                    </div>
+                </div>
+            </li>
+     
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
              <!-- Nav Item - Pages Collapse Menu -->
              <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
                     aria-expanded="true" aria-controls="collapseProduct">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Product</span>
+                    <span>Inventory</span>
                 </a>
                 <div id="collapseProduct" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{route('admin.product.list')}}">Products </a>
+                        <a class="collapse-item" href="{{route('admin.product.list')}}">Inventory </a>
                     </div>
                 </div>
             </li>

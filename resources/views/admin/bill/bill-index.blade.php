@@ -1,23 +1,27 @@
 @extends('admin.layouts.main')
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet">
-
 @endpush
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
+
+        <!-- Page Heading -->
+        {{-- <h1 class="h3 mb-2 text-gray-800">Bill</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p> --}}
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
                     <div class="col-md-6">
-                        <h6 class="m-0 font-weight-bold text-primary">Inventory Items</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Bill History</h6>
                     </div>
                     <div class="col-md-6 text-right">
-                        <button class="btn btn-primary btn-sm addProduct"data-toggle="modal" data-action="add"
-                            data-target="#addEditProductModal">Create New</button>
+                        <button class="btn btn-primary btn-sm addBill"data-toggle="modal" data-action="add"
+                            data-target="#addEditBillModal">Add Bill</button>
                     </div>
                 </div>
             </div>
@@ -27,14 +31,9 @@
                         <thead>
                             <tr>
                                 <th>SI</th>
-                                <th>Product Name</th>
-                                <!-- <th>Images</th> -->
-                                <th>Brand</th>
-                                <th>Type</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Amount</th>
-                                {{-- <th>Description</th> --}}
+                                <th>Customer Name</th>
+                                <th>Mobile</th>
+                                <!-- <th>Amount</th> -->
                                 <th>Created At</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -53,19 +52,19 @@
     <!-- /.container-fluid -->
 
 
-    <div class="modal" id="addEditProductModal">
+    <div class="modal" id="addEditBillModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Product : <span class="action_name"></span></h4>
+                    <h4 class="modal-title">Bill : <span class="action_name"></span></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="{{ route('admin.product.save') }}" class="formsubmit fileupload" id="product_form" method="POST"  enctype="multipart/form-data">
+                <form action="{{ route('admin.bill.save') }}" class="formsubmit" method="POST">
                     @csrf()
                     <div class="form-section">
-                        @include('admin.product.product-add-edit')
+                        @include('admin.bill.bill-add-edit')
                     </div>
                 </form>
                 
@@ -74,15 +73,14 @@
     </div>
 @endsection
 @push('js')
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
-
+  
     <script type="text/javascript">
         $(function() {
             var i = 1;
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.product.list') }}",
+                ajax: "{{ route('admin.bill.list') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -91,32 +89,12 @@
                     },
 
                     {
-                        data: 'product_name',
-                        name: 'product_name'
+                        data: 'receiver_name',
+                        name: 'receiver_name'
                     },
-                    // {
-                    //     data: 'product_image',
-                    //     name: 'product_image'
-                    // },
-                    {
-                        data: 'brand',
-                        name: 'brand'
-                    },
-                    {
-                        data: 'type',
-                        name: 'type'
-                    },
-                    {
-                        data: 'quantity',
-                        name: 'quantity'
-                    },
-                    {
-                        data: 'price',
-                        name: 'price'
-                    },
-                    {
-                        data: 'amount',
-                        name: 'amount'
+                    {  
+                        data: 'mobile_number',
+                        name: 'mobile_number'
                     },
                     {
                         data: 'created_at',
@@ -139,13 +117,10 @@
     </script>
     <script>
         $(document).ready(function(e) {
-            $(".card-header").on("click", ".addProduct", function(e) {
-                // $("#addEditProductModal").modal('show');
-                $("#addEditProductModal").find('.action_name').html('Add');
+            $(".card-header").on("click", ".addBill", function(e) {
+                // $("#addEditBillModal").modal('show');
+                $("#addEditBillModal").find('.action_name').html('Add');
             })
         });
     </script>
-
-
-
 @endpush

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\View;
 
 use Exception;
 use Illuminate\Support\Facades\Validator;
+
 class BlogCategoryController extends Controller
 {
     //
@@ -32,6 +33,7 @@ class BlogCategoryController extends Controller
             }
         return view('admin.blog.category.category-index');
     }
+
     public function save(Request $request){
         $categoryId = $request->category_id ?? NULL;
         if (!empty($categoryId)) {
@@ -58,6 +60,7 @@ class BlogCategoryController extends Controller
         }
 
     }
+
     public function getEdit(Request $request)
     {
         // re
@@ -67,6 +70,7 @@ class BlogCategoryController extends Controller
         $renderedView = $view->render();
         return $this->responseJson(true,200,"dsd",['html_view'=>$renderedView]);
     }
+
     public function deleteRecord(Request $request)
     {
         // re
@@ -87,6 +91,7 @@ class BlogCategoryController extends Controller
         }
 
     }
+    
     public function updateStatus(Request $request)
     {
         $categoryDetails=BlogCategory::where('uuid',$request->uuid)->first();

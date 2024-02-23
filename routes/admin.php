@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\Blog\BlogCategoryController;
 use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Admin\Bill\BillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,14 @@ Route::as('admin.')->group(function () {
             Route::get('edit/{id}', [UserController::class, 'getEdit'])->name('edit');
             Route::get('update-status/{id}', [UserController::class, 'updateStatus'])->name('status');
             Route::get('delete/{id}', [UserController::class, 'deleteRecord'])->name('delete');
+        });
+
+        Route::prefix('bill')->as('bill.')->group(function () {
+            Route::get('list', [BillController::class, 'index'])->name('list');
+            Route::post('save', [BillController::class, 'save'])->name('save');
+            Route::get('edit/{id}', [BillController::class, 'getEdit'])->name('edit');
+            Route::get('update-status/{id}', [BillController::class, 'updateStatus'])->name('status');
+            Route::get('delete/{id}', [BillController::class, 'deleteRecord'])->name('delete');
         });
 
     });

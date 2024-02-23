@@ -10,6 +10,7 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
+
 class ProductController extends Controller
 {
     public function index(Request $request)
