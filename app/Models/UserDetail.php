@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Bill extends Model
+class UserDetail extends Model
 {
+
     use HasFactory;
      /**
      * The accessors to append to the model's array form.
@@ -16,17 +17,17 @@ class Bill extends Model
      * @var array
      */
     protected $appends = [
-        'bill_count'
+        'user_count'
     ];
     
-    public function bill()
+    public function user()
     {
-        return $this->hasMany(Bill::class,'bill_id');
+        return $this->hasMany(UserDetail::class,'user_id');
     }
 
-    public function getBillCountAttribute()
+    public function getUserCountAttribute()
     {
-       return $this->bill()->getActive()->count();
+       return $this->user()->getActive()->count();
     }
     
      /**
@@ -35,12 +36,11 @@ class Bill extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'receiver_name',
+        'name',
         'mobile_number',
-        'date',
-        'bill_address',
-        'note',
-        'slug',
+        'email',
+        'username',
+        'password',
         'status',
     ];
     // protected $guarded = [];
@@ -62,7 +62,7 @@ class Bill extends Model
     {
         return [
             'slug' => [
-                'source' => 'receiver_name'
+                'source' => 'name'
             ]
         ];
     }
@@ -71,5 +71,5 @@ class Bill extends Model
     {
         return $q->where('status','active');
     }
-   
+
 }

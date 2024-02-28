@@ -1,7 +1,7 @@
 @if (!empty($data))
-    <input type="hidden" name="bill_id" 
+    <input type="hidden" name="order_id" 
     value="{{$data->id}}"
-    class="form-control" id="bill_id">
+    class="form-control" id="order_id">
     @endif 
     <!-- Modal body -->
     <div class="modal-body">
@@ -28,10 +28,12 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <!-- <label for="admin">Admin</label>
-                    <select name="admin" id="admin" class="form-control">
-                        <option value="">Admin</option>
-                    </select> -->
+                    <label for="admin">Admin</label>
+                       <select name="admin" id="admin" class="form-control">
+                       <option value="">Select Admin</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Super Admin">Super Admin</option>
+                       </select>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -61,24 +63,24 @@
                 </div>
                 <div class="row">
                 <div class="col-lg-6">
-                    <!-- <label for="method">Method</label>
-                    <select name="method" id="" class="form-control">
+                    <label for="method">Method</label>
+                    <select name="method" id="method" class="form-control">
                         <option value="">Select method</option>
                         <option value="Inside Dhaka">Inside Dhaka</option>
                         <option value="Sub Area Dhaka">Sub Area Dhaka</option>
                         <option value="Outside Dhaka">Outside Dhaka</option>
                         <option value="Free shipping">Free shipping</option>
-                    </select> -->
+                    </select>
                 </div>
                 <div class="col-lg-6">
-                    <!-- <label for="amount">Amount</label>
-                    <select name="amount" id="" class="form-control">
+                    <label for="amount">Amount</label>
+                    <select name="amount" id="amount" class="form-control">
                         <option value="">Select Amount</option>
                         <option value="80">80</option>
                         <option value="100">100</option>
                         <option value="150">150</option>
                         <option value="0">0</option>
-                    </select> -->
+                    </select>
                 </div>
             </div>
             </div>
@@ -89,7 +91,7 @@
     <div class="modal-footer">
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary mb-2">Save Bill</button>
+                <button type="submit" class="btn btn-primary mb-2">Save Order</button>
             </div>
         </div>
     </div>

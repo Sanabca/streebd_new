@@ -7,7 +7,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        {{-- <h1 class="h3 mb-2 text-gray-800">Bill</h1>
+        {{-- <h1 class="h3 mb-2 text-gray-800">order</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
             href="https://datatables.net">official DataTables documentation</a>.</p> --}}
@@ -17,11 +17,11 @@
             <div class="card-header py-3">
                 <div class="row">
                     <div class="col-md-6">
-                        <h6 class="m-0 font-weight-bold text-primary">Bill History</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">order History</h6>
                     </div>
                     <div class="col-md-6 text-right">
-                        <button class="btn btn-primary btn-sm addBill"data-toggle="modal" data-action="add"
-                            data-target="#addEditBillModal">Add Bill</button>
+                        <button class="btn btn-primary btn-sm addOrder"data-toggle="modal" data-action="add"
+                            data-target="#addEditOrderModal">Add Order</button>
                     </div>
                 </div>
             </div>
@@ -52,19 +52,19 @@
     <!-- /.container-fluid -->
 
 
-    <div class="modal" id="addEditBillModal">
+    <div class="modal" id="addEditOrderModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Bill : <span class="action_name"></span></h4>
+                    <h4 class="modal-title">Order : <span class="action_name"></span></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="{{ route('admin.bill.save') }}" class="formsubmit" method="POST">
+                <form action="{{ route('admin.order.save') }}" class="formsubmit" method="POST">
                     @csrf()
                     <div class="form-section">
-                        @include('admin.bill.bill-add-edit')
+                        @include('admin.order.order-add-edit')
                     </div>
                 </form>
                 
@@ -80,7 +80,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.bill.list') }}",
+                ajax: "{{ route('admin.order.list') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -117,9 +117,9 @@
     </script>
     <script>
         $(document).ready(function(e) {
-            $(".card-header").on("click", ".addBill", function(e) {
-                // $("#addEditBillModal").modal('show');
-                $("#addEditBillModal").find('.action_name').html('Add');
+            $(".card-header").on("click", ".addOrder", function(e) {
+                // $("#addEditOrderModal").modal('show');
+                $("#addEditOrderModal").find('.action_name').html('Add');
             })
         });
     </script>

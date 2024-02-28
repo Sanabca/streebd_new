@@ -7,20 +7,43 @@ use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class UserDetails extends Model
+class Order extends Model
 {
     use HasFactory;
+     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'order_count'
+    ];
+    
+    public function order()
+    {
+        return $this->hasMany(Order::class,'order_id');
+    }
+
+    public function getOrderCountAttribute()
+    {
+       return $this->order()->getActive()->count();
+    }
+    
      /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'receiver_name',
         'mobile_number',
-        'email',
-        'username',
-        'password',
+        'admin',
+        'date',
+        'bill_address',
+        'note',
+        'method',
+        'amount',
+        'slug',
         'status',
     ];
     // protected $guarded = [];
@@ -42,7 +65,7 @@ class UserDetails extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'receiver_name'
             ]
         ];
     }
@@ -51,4 +74,5 @@ class UserDetails extends Model
     {
         return $q->where('status','active');
     }
+   
 }

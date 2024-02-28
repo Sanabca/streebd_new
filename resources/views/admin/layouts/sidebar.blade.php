@@ -61,14 +61,14 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBill"
-                    aria-expanded="true" aria-controls="collapseBill">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrder"
+                    aria-expanded="true" aria-controls="collapseOrder">
                     <i class="fas fa-solid fa-user"></i>
                     <span>Bill</span>
                 </a>
-                <div id="collapseBill" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseOrder" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{route('admin.bill.list')}}">Bill </a>
+                        <a class="collapse-item" href="{{route('admin.order.list')}}">Bill </a>
                     </div>
                 </div>
             </li>

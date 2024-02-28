@@ -4,16 +4,20 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\UserDetails;
+use App\Models\UserDetail;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\View;
+
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = UserDetails::select('*');
+            $data = UserDetail::select('*');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -55,7 +59,7 @@ class UserController extends Controller
         }
         try {
             $User = $request->all();
-            $isEffected = UserDetails::updateOrCreate(['id'=>$userId],$User);
+            $isEffected = UserDetail::updateOrCreate(['id'=>$userId],$User);
             return $this->responseJson(true,200,$message,$isEffected);
           
         } catch (\Exception $ex) {
@@ -68,7 +72,7 @@ class UserController extends Controller
     public function getEdit(Request $request)
     {
         // re
-        $userDetails=UserDetails::where('uuid',$request->uuid)->first();
+        $userDetails=UserDetail::where('uuid',$request->uuid)->first();
         // return $userDetails;
         $view = View::make('admin.user.user-add-edit', ['data' => $userDetails]);
         $renderedView = $view->render();
@@ -78,7 +82,7 @@ class UserController extends Controller
     public function deleteRecord(Request $request)
     {
         // re
-        $userDetails=UserDetails::where('uuid',$request->uuid)->first();
+        $userDetails=UserDetail::where('uuid',$request->uuid)->first();
         // return $userDetails;
         $message ="User Not Found";
         
@@ -97,7 +101,7 @@ class UserController extends Controller
     }
     public function updateStatus(Request $request)
     {
-        $userDetails=UserDetails::where('uuid',$request->uuid)->first();
+        $userDetails=UserDetail::where('uuid',$request->uuid)->first();
         // return $userDetails;
         $message ="User Not Found";
         
