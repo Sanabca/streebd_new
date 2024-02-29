@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('username')->nullable();
             $table->string('password')->nullable();
+            $table->string('slug')->nullable();
             $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });

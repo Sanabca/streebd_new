@@ -16,19 +16,19 @@ class UserDetail extends Model
      *
      * @var array
      */
-    protected $appends = [
-        'user_count'
-    ];
+    // protected $appends = [
+    //     'user_count'
+    // ];
     
-    public function user()
-    {
-        return $this->hasMany(UserDetail::class,'user_id');
-    }
+    // public function user()
+    // {
+    //     return $this->hasMany(UserDetail::class,'user_id');
+    // }
 
-    public function getUserCountAttribute()
-    {
-       return $this->user()->getActive()->count();
-    }
+    // public function getUserCountAttribute()
+    // {
+    //    return $this->user()->getActive()->count();
+    // }
     
      /**
      * The attributes that are mass assignable.

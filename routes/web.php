@@ -65,4 +65,5 @@ Route::as('web.')->group(function () {
     Route::get('/our-partners', function () {
         return view('website.partners');
     })->name('partners');
+
 });

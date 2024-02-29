@@ -91,7 +91,7 @@
     <div class="modal-footer">
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary mb-2">Save Order</button>
+                <button type="submit" class="btn btn-primary mb-2">Save Bill</button>
             </div>
         </div>
     </div>

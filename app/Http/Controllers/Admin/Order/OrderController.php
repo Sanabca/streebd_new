@@ -58,15 +58,30 @@ class OrderController extends Controller
             ]);
             $message = "Order Created Successfully";
         }
-        try {
-            $order = $request->all();
-            $isEffected = Order::updateOrCreate(['id'=>$orderId],$order);
+            $Order = $request->all();
+              
+            $isEffected = Order::updateOrCreate(['id'=>$orderId],$Order);
+            $redirectUrl = route('admin.order.list');
             return $this->responseJson(true,200,$message,$isEffected);
-          
-        } catch (\Exception $ex) {
-            throw new HttpResponseException($this->responseJson(false,400,$message));
-        }
 
+
+            
+        // try {
+        //     $order = $request->all();
+        //     $isEffected = Order::updateOrCreate(['id'=>$orderId],$order);
+        //     return $this->responseJson(true,200,$message,$isEffected);
+          
+        // } catch (\Exception $ex) {
+        //     throw new HttpResponseException($this->responseJson(false,400,$message));
+        // }
+
+    }
+
+    public function create()
+    {
+        //Add Page
+        // $users = Order::whereIn('role', [2,3])->get();
+        return view('admin.order.add');
     }
 
     public function getEdit(Request $request)

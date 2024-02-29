@@ -69,10 +69,17 @@ Route::as('admin.')->group(function () {
             Route::get('delete/{id}', [OrderController::class, 'deleteRecord'])->name('delete');
         });
 
+        
+
     });
    
 
     Route::match(['get', 'post'], '/login', [AdminAuthController::class,'login'])->name('login'); 
     Route::post('/logout', [AdminAuthController::class,'logout'])->name('logout'); 
 
+
 });
+// Route::get('/add-bill',function(){
+//     return view('order/order-add-edit');
+// });
+Route::get('/add-bill', [OrderController::class, 'create'])->name('create');

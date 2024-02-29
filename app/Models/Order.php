@@ -15,19 +15,6 @@ class Order extends Model
      *
      * @var array
      */
-    protected $appends = [
-        'order_count'
-    ];
-    
-    public function order()
-    {
-        return $this->hasMany(Order::class,'order_id');
-    }
-
-    public function getOrderCountAttribute()
-    {
-       return $this->order()->getActive()->count();
-    }
     
      /**
      * The attributes that are mass assignable.

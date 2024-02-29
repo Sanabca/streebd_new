@@ -57,6 +57,14 @@ class UserController extends Controller
             ]);
             $message = "User Created Successfully";
         }
+            // $User = $request->all();
+              
+            // $isEffected = UserDetail::updateOrCreate(['id'=>$userId],$User);
+            // $redirectUrl = route('admin.user.list');
+            // return $this->responseJson(true,200,$message,$isEffected);
+
+
+
         try {
             $User = $request->all();
             $isEffected = UserDetail::updateOrCreate(['id'=>$userId],$User);
